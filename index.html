@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess the Number Game</title>
+  <title>Errate die Nummer</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -51,12 +51,12 @@
 </head>
 <body>
 
-  <h1>Guess the Number Game</h1>
-  <p>Guess a number between 1 and 10:</p>
+  <h1>Errate die Nummer</h1>
+  <p>Errate die nummer zwischen 1 und 10:</p>
   <input type="number" id="guessInput" min="1" placeholder="Enter your guess">
   <br>
-  <button onclick="checkGuess()">Submit Guess</button>
-  <button onclick="restartGame()">Restart Game</button>
+  <button onclick="checkGuess()">Versuch Abschicken</button>
+  <button onclick="restartGame()">Spiel neustarten</button>
   <p id="message"></p>
   <p id="counter"></p>
 
@@ -78,19 +78,19 @@
       const userGuess = parseInt(document.getElementById('guessInput').value);
 
       if (isNaN(userGuess) || userGuess < 1) {
-        document.getElementById('message').innerHTML = 'Please enter a valid number greater than or equal to 1.';
+        document.getElementById('message').innerHTML = 'Gebe eine gültige nummer ein, die gleich oder größer als 1 ist.';
         return;
       }
 
       guessCounter++;
 
       if (userGuess === secretNumber) {
-        document.getElementById('message').innerHTML = `Congratulations! You guessed the correct number in ${guessCounter} ${guessCounter === 1 ? 'attempt' : 'attempts'}!`;
+        document.getElementById('message').innerHTML = `Glückwunsch! Du hat die Nummer in ${guessCounter} ${guessCounter === 1 ? 'Versuchen' : 'Versuchen'}!`;
       } else {
-        document.getElementById('message').innerHTML = 'Sorry, that\'s not the correct number. Try again!';
+        document.getElementById('message').innerHTML = 'Dies ist nicht die Korekte Nummer! Versuche es erneut.';
       }
 
-      document.getElementById('counter').innerHTML = `Number of guesses: ${guessCounter}`;
+      document.getElementById('counter').innerHTML = `Versuche: ${guessCounter}`;
     }
   </script>
 
