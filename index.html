@@ -53,7 +53,7 @@
 
   <h1>Errate die Nummer</h1>
   <p>Errate die nummer zwischen 1 und 10:</p>
-  <input type="number" id="guessInput" min="1" placeholder="Enter your guess">
+  <input type="number" id="guessInput" min="1" placeholder="Zahl eingeben">
   <br>
   <button onclick="checkGuess()">Versuch Abschicken</button>
   <button onclick="restartGame()">Spiel neustarten</button>
@@ -85,7 +85,7 @@
       guessCounter++;
 
       if (userGuess === secretNumber) {
-        document.getElementById('message').innerHTML = `Glückwunsch! Du hat die Nummer in ${guessCounter} ${guessCounter === 1 ? 'Versuchen' : 'Versuchen'}!`;
+        document.getElementById('message').innerHTML = `Glückwunsch! Du hat die Nummer in ${guessCounter} ${guessCounter === 1 ? 'Versuchen' : 'Versuchen erraten'}!`;
       } else {
         document.getElementById('message').innerHTML = 'Dies ist nicht die Korekte Nummer! Versuche es erneut.';
       }
