@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background-color: #f0f8ff; /* Light Blue */
+      color: #333; /* Dark Gray */
+    }
+
+    h1 {
+      color: #007bff; /* Sky Blue */
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 60%;
+      font-size: 16px;
+      border: 1px solid #ccc; /* Light Gray */
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 15px;
+      margin: 10px;
+      background-color: #007bff; /* Sky Blue */
+      color: #fff; /* White */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Darker Sky Blue */
+    }
+
+    #message {
+      margin-top: 20px;
+      color: #dc3545; /* Red */
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Guess the Number Game</h1>
+  <p>Guess a number between 1 and 10:</p>
+  <input type="number" id="guessInput" min="1" placeholder="Enter your guess">
+  <br>
+  <button onclick="checkGuess()">Submit Guess</button>
+  <button onclick="restartGame()">Restart Game</button>
+  <p id="message"></p>
+  <p id="counter"></p>
+
+  <script>
+    let secretNumber;
+    let guessCounter;
+
+    restartGame();
+
+    function restartGame() {
+      secretNumber = Math.floor(Math.random() * 10) + 1;
+      guessCounter = 0;
+      document.getElementById('guessInput').value = '';
+      document.getElementById('message').innerHTML = '';
+      document.getElementById('counter').innerHTML = '';
+    }
+
+    function checkGuess() {
+      const userGuess = parseInt(document.getElementById('guessInput').value);
+
+      if (isNaN(userGuess) || userGuess < 1) {
+        document.getElementById('message').innerHTML = 'Please enter a valid number greater than or equal to 1.';
+        return;
+      }
+
+      guessCounter++;
+
+      if (userGuess === secretNumber) {
+        document.getElementById('message').innerHTML = `Congratulations! You guessed the correct number in ${guessCounter} ${guessCounter === 1 ? 'attempt' : 'attempts'}!`;
+      } else {
+        document.getElementById('message').innerHTML = 'Sorry, that\'s not the correct number. Try again!';
+      }
+
+      document.getElementById('counter').innerHTML = `Number of guesses: ${guessCounter}`;
+    }
+  </script>
+
+</body>
+</html>
